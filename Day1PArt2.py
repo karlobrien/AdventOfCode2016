@@ -11,6 +11,7 @@ ex1 = "R2, L3"
 ex2 = "R2, R2, R2"
 ex3 = "R5, L5, R5, R3"
 
+part2 = "R8, R4, R4, R8" 
 instructions = input.split(', ')
 
 visitedSet = set()
@@ -18,38 +19,42 @@ x, y = 0, 0
 visitedSet.add((0, 0))
 state = 'N'
 
+#need to separate steps and rotating
+lookup = {'N': {'L': -1, 'R': 1}, 'E': {'L': 1, 'R': -1}, 'S': {'L': 1, 'R': -1}, 'W': {'L': -1, 'R': 1}}
+
 for item in instructions:
     direction = item[0]
     steps = int(item[1:])
+    sign = lookup[state][direction]
 
-    if state == 'N':
-        if direction == 'L':
-            x = x - steps
-            state = 'W'
-        elif direction == 'R':
-            x = x + steps
-            state = 'E'
-    elif state == 'E':
-        if direction == 'L':
-            y = y + steps
-            state = 'N'
-        elif direction == 'R':
-            y = y - steps
-            state = 'S'
-    elif state == 'W':
-        if direction == 'L':
-            y = y - steps
-            state = 'S'
-        elif direction == 'R':
-            y = y + steps
-            state = 'N'
-    elif state == 'S':
-        if direction == 'L':
-            x = x + steps
-            state = 'E'
-        elif direction == 'R':
-            x = x - steps
-            state = 'W'
+    for i in range(steps):
+        if (state == 'N') or (state == 'S'):
+            x = x + sign
+        elif (state == 'W') or (state == 'E'):
+            y = y + sign
+        if ((x, y) in visitedSet):
+            print "Already Visited:", abs(x) + abs(y)
+        visitedSet.add((x,y))
+
+    if state == 'N' and direction == 'L':
+        state = 'W'
+    elif state == 'N' and direction == 'R':
+        state = 'E'
+
+    elif state == 'E' and direction == 'L':
+        state = 'N'
+    elif state == 'E' and direction == 'R':
+        state = 'S'
+
+    elif state == 'W' and direction == 'L':
+        state = 'S'
+    elif state == 'W' and direction == 'R':
+        state = 'N'
+
+    elif state == 'S' and direction == 'L':
+        state = 'E'
+    elif state == 'S' and direction == 'R':
+        state = 'W'
 
 print x, y
 result = abs(x) + abs(y)
