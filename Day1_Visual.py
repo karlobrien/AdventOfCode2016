@@ -20,8 +20,7 @@ for instr in data:
             hq = visited[-1]
 
 print 'x: ', visited[-1][0]
-print 'y: ', visited[-1][1
-]
+print 'y: ', visited[-1][1]
 print(abs(visited[-1][0]) + abs(visited[-1][1]))
 
 print hq[0], hq[1]
