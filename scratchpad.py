@@ -15,6 +15,8 @@ data.sort(axis=0)
 print data
 
 print '----- iter ----'
+print '--- We can also iter through a file and zip the contents'
+print '-- ie. for z in zip(*file.split())'
 print '--This allow us to iter over a step'
 args = [iter (int(x) for x in a)] * 2
 for x in izip_longest(*args):
@@ -40,3 +42,6 @@ print '--- Flatten the list ----'
 sortedLetters = ['abc', 'fwe', 'cewf']
 flatten = [x for sublist in sortedLetters for x in sublist]
 print flatten
+
+
+
