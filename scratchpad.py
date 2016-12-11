@@ -43,5 +43,17 @@ sortedLetters = ['abc', 'fwe', 'cewf']
 flatten = [x for sublist in sortedLetters for x in sublist]
 print flatten
 
+print '--- List operations ---'
+list = range(10)
+print list
+print '-- Every second item including the zero item'
+print list[::2]
 
 
+print '-- More on using itertools, more memory efficient ---'
+from itertools import izip, count
+alist = ['a1', 'a2', 'a3']
+blist = ['b1', 'b2', 'b3']
+
+for i, a, b in izip(count(), alist, blist):
+    print i, a, b
