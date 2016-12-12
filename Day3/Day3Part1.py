@@ -9,4 +9,3 @@ result = sum(vals[0] + vals[1] > vals[2]
             for line in input])
 
 print result
-

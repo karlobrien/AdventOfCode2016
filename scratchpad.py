@@ -57,3 +57,7 @@ blist = ['b1', 'b2', 'b3']
 
 for i, a, b in izip(count(), alist, blist):
     print i, a, b
+
+print '--- Shift an array i numpy --'
+x = np.arange(10)
+print np.roll(x, 2)
