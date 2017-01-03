@@ -37,7 +37,6 @@ while len(done) < len(lines):
 
         # Get the numbers the bot carries
         ns = bots[frm]
-
         # If we don't have 2 numbers, then we haven't processed enough info yet,
         # come back later
         if len(ns) < 2:
@@ -56,8 +55,7 @@ while len(done) < len(lines):
             outs[hdest].append(high)
         else:
             bots[hdest].append(high)
-
         done.add(line)
 
-print bots
+#print bots
 print outs[0][0] * outs[1][0] * outs[2][0]
