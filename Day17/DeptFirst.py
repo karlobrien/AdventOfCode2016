@@ -59,13 +59,14 @@ def FindWay(destination, hsh):
                     queue.append(genState)
 
 
-input = 'ihgpwlah'
-#input = 'kglvqrro'
-#input = 'ulqzkmiv'
-#input = 'qtetzkpl'
-print 'running'
+input = 'ihgpwlah' #370
+input = 'kglvqrro' #492
+input = 'ulqzkmiv' #830
+input = 'qtetzkpl' #706
+
 des = (3,3)
 
 #print FindWay(des, input)
 data = list(FindWay(des, input))
+
 print data[-1]
