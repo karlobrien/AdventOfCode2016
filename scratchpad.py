@@ -61,3 +61,5 @@ for i, a, b in izip(count(), alist, blist):
 print '--- Shift an array i numpy --'
 x = np.arange(10)
 print np.roll(x, 2)
+
+print 'xrange uses yield so is more efficient on large lists'
